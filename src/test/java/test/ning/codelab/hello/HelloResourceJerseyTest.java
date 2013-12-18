@@ -28,17 +28,16 @@ public class HelloResourceJerseyTest
     {
         Injector injector = Guice.createInjector(new HelloServerModule());
         HelloResource theHello = injector.getInstance(HelloResource.class);
+
         return theHello;
     }
 
-    
-    /*@Test
-    public void testHelloDefaultCustomXMLFormat()
+    @Test
+    public void testHelloXml()
     {
-    	HelloResource theHello = useGuiceToInstantiateTheHelloResource();
-    	theHello.getCustomerInXML();
-    	//assert "hello, world".equals(theHello.getCustomerInXML(100));
-    }*/
+        HelloResource theHello = useGuiceToInstantiateTheHelloResource();
+        assert "GlamIndia".equals(theHello.getXMLOfCustomer().getName());
+    }
     
     @Test
     public void testHelloDefaultPlaintext()

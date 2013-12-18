@@ -36,7 +36,6 @@ public class HelloServerModule extends ServletModule
          * (or, if missing, Config-object annotation provided defaults!)
          */
         final MyConfig config = new Configamajig(System.getProperties()).configure(MyConfig.class);
-        
         bind(MyConfig.class).toInstance(config);
 
         // but you may also see this older variant:

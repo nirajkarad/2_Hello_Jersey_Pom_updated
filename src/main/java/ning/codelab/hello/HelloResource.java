@@ -38,17 +38,18 @@ public class HelloResource
     public String getPlainText() {
         return this.getMessage();
     }
-   
     
-/*	@GET
-	@Path("/xml/customer")
-	@Produces(MediaType.APPLICATION_XML)
-	public Customer	 getCustomerInXML() {
-		Customer customer = new Customer();
-		customer.setName("GlamIndia");
-		return customer;
- 	<version>7.4.5.v20110725</version>
-	}*/
+    
+    @GET
+    @Path("xml/customer")
+    @Produces(MediaType.APPLICATION_XML)
+    public Customer getXMLOfCustomer()
+    {
+    	Customer c= new Customer();
+    	c.setName("GlamIndia");
+    	return c;
+    }
+    
     
     
     @GET
