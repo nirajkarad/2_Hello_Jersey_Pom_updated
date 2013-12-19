@@ -1,6 +1,10 @@
 package ning.codelab.hello;
 
 import static com.google.common.collect.ImmutableMap.of;
+import ning.codelab.hello.json.JacksonJsonProviderWrapper;
+import ning.configamajig.v1.Configamajig;
+import ning.jackson.guice.CustomObjectMapperProvider;
+import ning.jackson.serializers.DateTimeSerializer;
 
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -9,12 +13,6 @@ import org.joda.time.DateTime;
 import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.api.container.filter.GZIPContentEncodingFilter;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
-
-import ning.codelab.hello.json.JacksonJsonProviderWrapper;
-import ning.configamajig.v1.ConfigModule;
-import ning.configamajig.v1.Configamajig;
-import ning.jackson.guice.CustomObjectMapperProvider;
-import ning.jackson.serializers.DateTimeSerializer;
 
 /**
  * This is the root module for the Hello server. It will install other modules

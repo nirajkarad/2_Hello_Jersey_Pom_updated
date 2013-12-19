@@ -1,8 +1,13 @@
 package ning.codelab.hello;
 
+import java.util.List;
+import java.util.Locale;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 import com.google.inject.Inject;
@@ -21,7 +26,7 @@ import com.google.inject.Inject;
  *
  * See http://jersey.dev.java.net/ for Jersey documentation
  */
-@Path("/")
+@Path("/rest")
 public class HelloResource
 {
     private final MyConfig config;
@@ -51,6 +56,26 @@ public class HelloResource
     }
     
     
+    @GET
+    @Path("testUrl")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String showUrl(@Context HttpHeaders httpHeaders) {
+    	  return "You asked for " + httpHeaders.getAcceptableLanguages();
+    	}
+    
+    @GET
+    @Path("greeting")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getGreeting(@Context HttpHeaders httpHeaders) {
+        List<Locale> lst = httpHeaders.getAcceptableLanguages();
+
+        if (lst.size() == 0) {
+            return "Size is 0";
+        }
+        return lst.toString();
+    }
+    
+
     
     @GET
     @Path("json")
