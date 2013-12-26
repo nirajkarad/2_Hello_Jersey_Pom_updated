@@ -9,8 +9,8 @@ import ning.codelab.hello.HelloResource;
 import ning.codelab.hello.HelloServerModule;
 
 /**
- * HelloResource TestNG module.
- */
+* HelloResource TestNG module.
+*/
 public class HelloResourceTest
 {
     private HelloResource useGuiceToInstantiateTheHelloResource()

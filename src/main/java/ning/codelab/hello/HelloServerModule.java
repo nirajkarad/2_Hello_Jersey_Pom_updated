@@ -2,7 +2,7 @@ package ning.codelab.hello;
 
 import static com.google.common.collect.ImmutableMap.of;
 import ning.codelab.hello.json.JacksonJsonProviderWrapper;
-import ning.configamajig.v1.Configamajig;
+
 import ning.jackson.guice.CustomObjectMapperProvider;
 import ning.jackson.serializers.DateTimeSerializer;
 
@@ -33,8 +33,10 @@ public class HelloServerModule extends ServletModule
          * are passed to JVM as Java system properties) to basic config POJO
          * (or, if missing, Config-object annotation provided defaults!)
          */
-        final MyConfig config = new Configamajig(System.getProperties()).configure(MyConfig.class);
-        bind(MyConfig.class).toInstance(config);
+        /*final MyConfig config = new Configamajig(System.getProperties()).configure(MyConfig.class);
+        bind(MyConfig.class).toInstance(config);*/
+    	
+    	bind(MyConfig.class).toProvider(ConfigProvider.class);
 
         // but you may also see this older variant:
         //install(new ConfigModule());

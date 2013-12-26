@@ -17,8 +17,8 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 /**
- * HelloResource TestNG module.
- */
+* HelloResource TestNG module.
+*/
 public class HelloResourceJerseyTest
 {
     /** see MyConfig class */
@@ -44,10 +44,10 @@ public class HelloResourceJerseyTest
     @Test
     public void testgreeting()
     {
-    	HelloResource theHello = useGuiceToInstantiateTheHelloResource();
-    	http= EasyMock.createMock(HttpHeaders.class);
-    	EasyMock.expect(http.getAcceptableLanguages()).andReturn(Arrays.asList(Locale.ENGLISH, Locale.US));
-    	EasyMock.replay(http);
+            HelloResource theHello = useGuiceToInstantiateTheHelloResource();
+            http= EasyMock.createMock(HttpHeaders.class);
+            EasyMock.expect(http.getAcceptableLanguages()).andReturn(Arrays.asList(Locale.ENGLISH, Locale.US));
+            EasyMock.replay(http);
         assert "[en, en_US]".equals(theHello.getGreeting(http));
     }
     

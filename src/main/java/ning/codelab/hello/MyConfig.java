@@ -1,6 +1,9 @@
 package ning.codelab.hello;
 
-import ning.configamajig.v1.Property;
+import org.skife.config.Config;
+import org.skife.config.Default;
+
+//import ning.configamajig.v1.Property;
 
 /**
  * Configamajig configuration class. The method bodies are ignored at runtime.
@@ -8,8 +11,10 @@ import ning.configamajig.v1.Property;
  * {@link HelloServerModule#configureServlets()} body for using Configamajig
  * to instantiate this.
  */
-public abstract class MyConfig
+public interface MyConfig
 {
-    @Property(value = "xn.hello.message", missing = "hello, world")
+    //@Property(value = "xn.hello.message", missing = "hello, world")
+    @Config("xn.hello.message")
+    @Default("hello, world")
     public abstract String getMessage();
 }
